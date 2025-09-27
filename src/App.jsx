@@ -10,6 +10,7 @@ const CARDS = [
 
 const App = () => {
   const [count, setCount] = useState(0)
+  const [name, setName] = useState("")
 
   const inc = () => setCount(c => c + 1)
   return (
@@ -25,13 +26,16 @@ const App = () => {
           </Card>
         ))}
       </div>
-
-      <a href="#" className="inline-block px-4 py-2 rounded-lg border hover:bg-slate-500 focus:ring-2  focust:ring-blue-500">link com foco</a>
+<form>
+  <input type="text" valeu={name} onChage={event => setName(event.target.valeu)}/>
+</form>
+      <a href="#" className="inline-block px-4 py-2 rounded-lg border hover:bg-slate-500 focus:ring-2  focus:ring-amber-500">link com foco</a>
 
       <button 
       className="inline-block px-4 py-2 rounded-lg border hover:bg-slate-500 focus:ring-2  focust:ring-blue-500 cursor-pointer"
       onClick={inc}>
         Contador: {count}</button>
+
 
 
       <Hello name="Micheluti" />
