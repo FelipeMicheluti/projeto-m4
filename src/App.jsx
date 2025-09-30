@@ -12,15 +12,20 @@ const CARDS = [
 const App = () => {
   const [count, setCount] = useState(0)
   const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const inc = () => setCount(c => c + 1)
 
   const handleSubmit = event => {
     event.preventDefault()
 
-    console.log({ name })
-    
+    console.log({ name, email, password })
+
     setName('')
+    setEmail('')
+    setPassword('')
+
   }
 
   return (
@@ -50,10 +55,11 @@ const App = () => {
 
       <form onSubmit={handleSubmit}>
 
-        <TextField
-          label="Digite seu nome"
-          type="text" valeu={name} onChage={event => setName(event.target.valeu)} />
+        <TextField label="Digite seu nome" placeholder="Nome" id="name" type="text" value={name} onChange={event => setName(event.target.value)} />
 
+        <TextField label="Email" placeholder="E-mail" id="email" type="email" value={email} onChange={event => setEmail(event.target.value)} />
+
+        <TextField label="Senha" placeholder="Senha" id="password" type="password" value={password} onChange={event => setPassword(event.target.value)} />
 
         <button
           className="inline-block px-4 py-2 w-full rounded-lg border hover:bg-slate-500 focus:ring-2  focus:ring-blue-500 cursor-pointer">
@@ -61,6 +67,7 @@ const App = () => {
         </button>
 
       </form>
+
 
       <a href="#" className="inline-block px-4 py-2 rounded-lg border hover:bg-slate-500 focus:ring-2  focus:ring-amber-500">link com foco</a>
 
